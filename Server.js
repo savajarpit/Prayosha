@@ -27,6 +27,7 @@ app.use(morgan('dev'))
 app.use("/api/v1/auth",authRoute)
 app.use("/api/v1/category",catagoryRoutes)
 app.use("/api/v1/product",productRoutes)
+app.use("/api/v1/payment",productRoutes)
 
 // rest api
 app.get("/",(req,res)=>{

@@ -1,9 +1,14 @@
 import express from "express";
+import Razorpay from "razorpay";
+import cors from 'cors'
+import crypto from "crypto"
+import dotenv from "dotenv"
 
+dotenv.config()
 
 import formidable from "express-formidable";
 import { requireSignIn,isAdmin } from "../middlewares/authMiddleware.js";
-import { createProductController, deleteProductController, getProductController, getSingleProductController, productCategoryController, productCountController, productFiltersController, productListController, productPhotoController, realtedProductController, searchProductController, updateProductController } from "../controllers/productController.js";
+import { createProductController, deleteProductController, getProductController, getSingleProductController, paymentvalidatecontroller, productCategoryController, productCountController, productFiltersController, productListController, productPhotoController, razorpaypaymentController, realtedProductController, searchProductController, updateProductController } from "../controllers/productController.js";
 const router =express.Router()
 
 // routes
@@ -56,6 +61,9 @@ router.get("/related-product/:pid/:cid", realtedProductController);
 //category wise product
 router.get("/product-category/:slug", productCategoryController);
 
+// payments 
 
+router.post("/order",requireSignIn,razorpaypaymentController)
 
+router.post("/validate",paymentvalidatecontroller)
 export default router

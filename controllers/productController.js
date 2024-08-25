@@ -1,7 +1,16 @@
 import productModel from "../models/productModel.js";
 import categoryModel from "../models/catagoryModel.js"
+import orderModel from "../models/orderModel.js";
+import userModel from "../models/userModel.js";
 import fs from "fs";
 import slugify from "slugify";
+
+import Razorpay from "razorpay";
+
+import crypto from "crypto"
+import dotenv from "dotenv"
+
+dotenv.config()
 
 export const createProductController = async (req, res) => {
   try {
@@ -314,5 +323,139 @@ export const productCategoryController = async (req, res) => {
       error,
       message: "Error While Getting products",
     });
+  }
+};
+
+
+// payment controller
+
+// export const razorpaypaymentController=async (req,res)=>{
+//   try {
+
+//     const razorpay = new Razorpay({
+//         key_id: process.env.RAZORPAY_KEY_ID,
+//         key_secret: process.env.RAZORPAY_KEY_SECRET
+//     });
+
+//     if(!req.params){
+//         return res.status(400).send("Bad Request");
+
+//     }
+//     const options = req.params;
+
+//     const order = await razorpay.orders.create(options);
+
+//     if(!order){
+//         return res.status(400).send("Bad Request");
+//     }
+
+//     res.json(order);
+    
+// } catch (error) {
+//     console.log(error);
+//     res.status(500).send(error);
+// }
+// }
+
+
+// export const paymentvalidatecontroller=(req,res)=>{
+//   const {razorpay_order_id, razorpay_payment_id, razorpay_signature} = req.params
+
+//   const sha = crypto.createHmac("sha256", process.env.RAZORPAY_KEY_SECRET);
+//   // order_id + " | " + razorpay_payment_id
+
+//   sha.update(`${razorpay_order_id}|${razorpay_payment_id}`);
+
+//   const digest = sha.digest("hex");
+
+//   if (digest!== razorpay_signature) {
+//       return res.status(400).json({msg: " Transaction is not legit!"});
+//   }
+
+//   res.json({msg: " Transaction is legit!", orderId: razorpay_order_id,paymentId: razorpay_payment_id});
+  
+// }
+
+
+
+// Razorpay Payment Controller
+export const razorpaypaymentController = async (req, res) => {
+  try {
+    // Initialize Razorpay with your key_id and key_secret
+    const razorpay = new Razorpay({
+      key_id: process.env.RAZORPAY_KEY_ID,
+      key_secret: process.env.RAZORPAY_KEY_SECRET,
+    });
+
+    // Ensure that the request body has the necessary details
+    const { amount, currency, receipt} = req.body;
+    if (!amount || !currency || !receipt) {
+      return res.status(400).json({ message: "All fields are required" });
+    }
+
+    // Create the order options
+    const options = {
+      amount: amount , // Amount in the smallest currency unit (paise for INR)
+      currency: currency,
+      receipt: receipt,
+    
+    };
+
+    // Create the order
+    const order = await razorpay.orders.create(options);
+
+    if (!order) {
+      return res.status(500).json({ message: "Failed to create order" });
+    }
+
+     
+    // Send the order details back to the client
+    res.json(order);
+  } catch (error) {
+    console.error("Error creating Razorpay order:", error);
+    res.status(500).json({ message: "Internal Server Error" });
+  }
+};
+
+// Razorpay Payment Validation Controller
+export const paymentvalidatecontroller =async (req, res) => {
+  try {
+    const { razorpay_order_id, razorpay_payment_id, razorpay_signature } = req.body;
+
+    // Create a HMAC SHA256 hash using the key secret and the order ID and payment ID
+    const sha = crypto.createHmac("sha256", process.env.RAZORPAY_KEY_SECRET);
+    sha.update(`${razorpay_order_id}|${razorpay_payment_id}`);
+
+    const digest = sha.digest("hex");
+
+    // Check if the generated hash matches the Razorpay signature
+    if (digest !== razorpay_signature) {
+      return res.status(400).json({ message: "Transaction is not legit!" });
+    }
+
+    if (digest === razorpay_signature) {
+      
+      console.log(req.body)
+      const {email}=req.body
+      const userd = await userModel.findOne({email})
+      console.log(userd._id)
+      // Save the order details to the database only if payment is valid
+      await new orderModel({
+        products: req.body.cart,
+        payment: req.body,
+        buyer: userd._id,
+        totalbill:(req.body.totalbill)/100
+      }).save();
+      res.json({ msg: "ok", orderId: razorpay_order_id, paymentId: razorpay_payment_id });
+     
+    } else {
+      res.status(400).json({ msg: "Invalid signature" });
+    }
+
+    // If the signature matches, the transaction is legit
+
+  } catch (error) {
+    console.error("Error validating Razorpay payment:", error);
+    res.status(500).json({ message: "Internal Server Error" });
   }
 };

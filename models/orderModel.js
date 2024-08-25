@@ -18,6 +18,10 @@ const orderSchema = new mongoose.Schema(
       default: "Not Process",
       enum: ["Not Process", "Processing", "Shipped", "deliverd", "cancel"],
     },
+    totalbill:{
+      type:Number,
+      default:0
+    }
   },
   { timestamps: true }
 );
