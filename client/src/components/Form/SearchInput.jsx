@@ -1,9 +1,8 @@
-
 import React from "react";
 import { useSearch } from "../../context/search";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-
+import "../../styles/searchform.css"
 const SearchInput = () => {
   const [values, setValues] = useSearch();
   const navigate = useNavigate();
@@ -21,8 +20,8 @@ const SearchInput = () => {
     }
   };
   return (
-    <div>
-      <form className="d-flex" role="search" onSubmit={handleSubmit}>
+    <div className="ms-3">
+      {/* <form className="d-flex" role="search" onSubmit={handleSubmit}>
         <input
           className="form-control me-2"
           type="search"
@@ -34,11 +33,19 @@ const SearchInput = () => {
         <button className="btn btn-outline-success" type="submit">
           Search
         </button>
-      </form>
+      </form> */}
+
+<form onSubmit={handleSubmit} className="searchform">
+  <input type="search" placeholder="Search here .." value={values.keyword}
+          onChange={(e) => setValues({ ...values, keyword: e.target.value })} className="serchforminput" />
+  <button type="submit" className="hellobtns">
+  <i className="fa fa-search"  />
+  </button>
+ 
+</form>
+
+
     </div>
-
-  
-
   );
 };
 

@@ -1,0 +1,77 @@
+.policy-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    overflow: hidden;
+}
+
+.policy-title {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.policy-updated {
+    text-align: center;
+    font-size: 0.9em;
+    color: #666;
+}
+
+.policy-intro {
+    margin-bottom: 20px;
+}
+
+.policy-section-title {
+    color: #2a6496;
+    margin-top: 20px;
+}
+
+.policy-subtitle {
+    color: #333;
+    margin-top: 10px;
+    font-size: 1.2rem; /* Smaller font size for subcategories */
+}
+
+.policy-text {
+    margin-top: 10px;
+}
+
+.policy-list {
+    margin: 10px 0;
+    padding-left: 20px;
+}
+
+.policy-list li {
+    list-style-type: disc;
+}
+
+.policy-link {
+    color: #2a6496;
+    text-decoration: none;
+}
+
+.policy-link:hover {
+    text-decoration: underline;
+}
+
+.policy-address {
+    margin-top: 20px;
+    font-style: normal;
+}
+
+@media (max-width: 768px) {
+    .policy-container {
+        padding: 10px;
+    }
+
+    .policy-title {
+        font-size: 1.5em;
+    }
+
+    .policy-section-title {
+        font-size: 1.2em; /* Adjusted for smaller screens */
+    }
+
+    .policy-subtitle {
+        font-size: 1em; /* Further decreased size for smaller screens */
+    }
+}

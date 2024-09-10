@@ -16,13 +16,18 @@ export default function AdminRoute() {
           Authorization:  auth?.token
         },
       });
-      console.log(res.data.data.ok)
+
+      
       if (res.data.data.ok) {
         setOk(true);
-        navigate('/dashboard/admin');
       } else {
         setOk(false);
-      }
+       }
+
+
+      
+
+
     };
     if (auth?.token) authCheck();
   }, [auth?.token]);

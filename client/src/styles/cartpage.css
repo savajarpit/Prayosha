@@ -1,0 +1,165 @@
+/* CartPage.css */
+
+/* Container for the cart page */
+.containercart {
+    margin-top: 20px;
+  }
+  
+  /* Styling for the product card */
+  .card {
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  
+  .card:hover {
+    transform: scale(1.02);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Increment and Decrement button styling */
+  .btn-warning {
+    background-color: #ffc107;
+    border: none;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.2rem;
+    padding: 0;
+    transition: background-color 0.3s, transform 0.2s;
+  }
+  
+  .btn-warning:hover {
+    background-color: #e0a800;
+    transform: scale(1.1);
+  }
+  
+  /* Input field between + and - buttons */
+  .yeloinput {
+    border: 2px solid #ffc107;
+    border-radius: 5px;
+    width: 60px;
+    text-align: center;
+    font-size: 1rem;
+    padding: 2px;
+    transition: border-color 0.3s, box-shadow 0.3s;
+  }
+  
+  .yeloinput:focus {
+    border-color: #e0a800;
+    box-shadow: 0 0 5px rgba(224, 168, 0, 0.5);
+  }
+  
+  /* Remove button styling */
+  .btn-danger {
+    background-color: #dc3545;
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+    font-size: 0.9rem;
+    transition: background-color 0.3s, transform 0.2s;
+  }
+  
+  .btn-danger:hover {
+    background-color: #c82333;
+    transform: scale(1.1);
+  }
+  
+  /* Cart summary styling */
+.cartsummaryh2 {
+    
+    color: #343a40;
+    margin-bottom: 15px;
+    animation: fadeIn 1s ease-in-out;
+  }
+  
+  .cartsummaryh4 {
+   
+    color: #1d5484;
+    margin-bottom: 10px;
+  }
+  
+  /* Animation for cart summary */
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  /* Button to pay */
+  .paybutton{
+   
+    background-color: #7619a4;
+    color: white;
+    transition: background-color 0.3s, color 0.3s;
+  }
+  
+  .paybutton:hover {
+    background-color: #1f64cb;
+    /* background-color: #3f095b; */
+    color: #fff;
+  }
+  
+  .paybutton1{
+    background-color: #ffc107;
+    color: white;
+    transition: background-color 0.3s, color 0.3s;
+  }
+  .paybutton1:hover{
+    background-color: #c49407;  
+    color:white
+  }
+  .paybutton2{
+    background-color:#022760 ;
+    color: white;
+    transition: background-color 0.3s, color 0.3s;
+  }
+  .paybutton2:hover{
+    background-color: #1f64cb;  
+    color:white
+  }
+  .cartproductname{
+    font-weight: 400;
+    color: #555;
+  }
+  
+  
+  @media screen and (max-width: 768px) {
+    .cartproductname{
+        font-size: 1rem;
+    }
+    .cartTotalPriceDetails span{
+      font-size: 1rem;
+    }
+    .priceCalculus{
+      font-size: 1rem;
+    }
+   .TotalPriceText span{
+      font-size: 1rem;
+    }
+}
+.cartItemPrice{
+  font-size: 1.1rem;
+}
+.cartTotalPriceDetails span{
+  
+  color: #000000;
+    font-family: Open Sans, sans-serif;
+    font-size: 1.1rem;
+    font-style: italic;
+    font-weight: 700;
+}
+@media (max-width: 768px) {
+  .TotalPriceText {
+    display: block;
+   font-size: 1rem;
+  }
+}

@@ -5,12 +5,13 @@ import { useAuth } from "../context/auth";
 import { useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
 import axios from "axios";
+import "../styles/cartpage.css";
 
 const CartPage = () => {
   const [auth] = useAuth();
   const [cart, setCart] = useCart();
   const navigate = useNavigate();
-  
+
   // State to manage quantities, initialized to 1 for each item
   const [quantities, setQuantities] = useState({});
 
@@ -21,13 +22,14 @@ const CartPage = () => {
       return acc;
     }, {});
     setQuantities(initialQuantities);
+    window.scrollTo(0, 0);
   }, [cart]);
 
   // Handle quantity increase
   const handleIncQuantity = (id) => {
-    if (quantities[id] < 5) {
+    
       setQuantities({ ...quantities, [id]: quantities[id] + 1 });
-    }
+    
   };
 
   // Handle quantity decrease
@@ -89,6 +91,16 @@ const CartPage = () => {
     }
   };
 
+  const updatedCart = cart.map((item) => ({
+    ...item,
+    qnty: quantities[item._id] || 1,
+  }));
+  
+
+  const uname = auth?.user?.name;
+  const uphone = auth?.user?.phone;
+  const uemail = auth?.user?.email;
+
   // Payment handler
   const paymentHandler = async (event) => {
     const amounts = totalamount() * 100;
@@ -103,28 +115,21 @@ const CartPage = () => {
       key: "",
       amount: amounts,
       currency: "INR",
-      name: "arpit savaj",
+      name: "Prayosha Oil",
       description: "Test Transaction",
-      image: "https://i.ibb.co/5Y3m33n/test.png",
+      image: "https://scontent.fstv8-2.fna.fbcdn.net/v/t39.30808-6/227809428_210010607725670_3041727024764980399_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=a5f93a&_nc_ohc=C5zZpGizE4kQ7kNvgFFacSO&_nc_ht=scontent.fstv8-2.fna&oh=00_AYAuvEHTk77wQVbCNlaCcjU4WIN4IjaXtU4Wda_dgRmrYw&oe=66D3F11C",
       order_id: order.id,
       handler: async function (response) {
-       
-          const updatedCart = cart.map((item) => ({
-            ...item, 
-            qnty: quantities[item._id] || 1, 
-          }))
-          setCart(updatedCart); // Update the cart with the new array
-     localStorage.setItem("cart", JSON.stringify(updatedCart));
+        
 
-
-        const body = { ...response, cart: updatedCart, email: auth?.user?.email,totalbill:amounts,paymentstatus:"Success" };
+        const body = { ...response, cart: updatedCart, email: auth?.user?.email, totalbill: amounts, paymentstatus: "Success" };
         const validateResponse = await axios.post(`${import.meta.env.VITE_APIS}/api/v1/payment/validate`, body);
         const jsonResponse = validateResponse.data;
 
         if (jsonResponse.msg === "ok") {
           localStorage.removeItem("cart");
           setCart([]);
-          const rolePath = auth?.user?.role === 1 ? "admin" : "user";
+          const rolePath = auth?.user?.role == 1 ? "admin" : "user";
           toast.success("Payment Successful!");
           navigate(`/dashboard/${rolePath}/orders`);
         } else {
@@ -132,9 +137,9 @@ const CartPage = () => {
         }
       },
       prefill: {
-        name: "arpit savaj",
-        email: "aj@example.com",
-        contact: "9000000000",
+        name: uname,
+        email: uemail,
+        contact: uphone,
       },
       notes: {
         address: "Razorpay Corporate Office",
@@ -155,19 +160,46 @@ const CartPage = () => {
 
   return (
     <Layout>
-      <div className="container">
+      <div className="container containercart">
         <div className="row">
           <div className="col-md-12">
-            <h1 className="text-center bg-light p-2 mb-1">
-              {`Hello ${auth?.token && auth?.user?.name}`}
-            </h1>
-            <h4 className="text-center">
+            <h3 className="text-center  p-2 mb-1">
+            <span
+              className="text-center storeh1"
+              style={{
+                fontFamily: "sans-serif",
+                fontSize: "2rem",
+                fontWeight: "500",
+                display: "block", // Ensures the span takes up the full width
+                marginBottom: "0.5rem", // Adds space between the text and the hr
+              }}
+            >
+              {auth?.user?.name ? `Hello! ${auth?.user?.name}`:"Shopping Cart"}
+            </span>
+            <div style={{ textAlign: "center" }}>
+              {" "}
+              {/* Ensures hr is centered */}
+              <hr
+                className="sline"
+                style={{
+                  backgroundColor: "blue",
+                  border: "none",
+                  borderRadius: ".5rem",
+                  height: ".2rem",
+                  width: "15%", // Adjust this if needed
+                  margin: "0 auto", // Centers the hr element
+                  marginTop: "0", // Removes any extra margin above the hr
+                }}
+              />
+             </div>
+            </h3>
+            <h6 className="text-center">
               {cart?.length
                 ? `You Have ${cart.length} items in your cart ${
                     auth?.token ? "" : "please login to checkout"
                   }`
-                : "Your Cart Is Empty"}
-            </h4>
+                : "Your Cart Is Empty 🥺"}
+            </h6>
           </div>
         </div>
         <div className="row">
@@ -179,19 +211,26 @@ const CartPage = () => {
                     src={`${import.meta.env.VITE_APIS}/api/v1/product/product-photo/${p._id}`}
                     className="card-img-top"
                     alt={p.name}
-                    width="100px"
-                    height="100px"
+                    width="100%"
+                    height="100%"
                   />
                 </div>
                 <div className="col-md-8">
-                  <p>{p.name}</p>
-                  <p>{p.description.substring(0, 30)}</p>
-                  <p>Price: {p.price}</p>
-                  <p>Quantity: {quantities[p._id]}</p>
+                  
+                  <h4 className="cartproductname">{p.name}</h4>
+                  <p>Description : {p.description}</p>
+                  
+                  <p><span>Size : {p.quantity
+                  } Ltr.</span></p>
+                  {/* <p>Quantity : {quantities[p._id]}</p> */}
+                  <p className="cartItemPrice">Rs. {p.price}/<small>{p.quantity
+                  } Ltr.</small></p>
+                  <p className="cartTotalPriceDetails">Total Price : <span className="priceCalculus">Rs. {p.price}/<small>{p.quantity
+                  } Ltr.</small> X {quantities[p._id]}</span>          <span className="TotalPriceText" style={{marginLeft:"2px",color:"#04446f",fontFamily:"Open Sans, sans-serif",fontStyle:"normal",fontSize:"1.3rem"}}>Rs.{p.price*quantities[p._id]}</span></p>
                   <button className="btn btn-warning" onClick={() => handleIncQuantity(p._id)}>+</button>
                   <input
                     type="number"
-                    className="ms-2"
+                    className="ms-2 yeloinput"
                     value={quantities[p._id]}
                     onChange={(e) => handleInputChange(p._id, e)}
                     style={{ width: "50px", textAlign: "center" }}
@@ -207,54 +246,66 @@ const CartPage = () => {
               </div>
             ))}
           </div>
-          <div className="col-md-4 text-center">
-            <h2>Cart Summary</h2>
-            <p>Total | Checkout | Payment</p>
-            <hr />
-            <h4>Total: {totalPrice()}</h4>
-            {auth?.user?.address ? (
-              <div className="mb-3">
-                <h4>Current Address</h4>
-                <h5>{auth?.user?.address}</h5>
-                <button
-                  className="btn btn-outline-warning"
-                  onClick={() =>
-                    navigate(`/dashboard/${auth?.user?.role === 1 ? "admin" : "user"}/orders`)
-                  }
-                >
-                  Update Address
-                </button>
-                <br />
-                <button className="btn btn-outline-warning mt-2" onClick={paymentHandler}>
-                  Pay
-                </button>
-              </div>
-            ) : (
-              <div className="mb-3">
-                {auth?.token ? (
+          
+          {cart?.length > 0 && (
+            <div className="col-md-4 text-center">
+              <h2 className="cartsummaryh2">Cart Summary</h2>
+              <p>Total | Checkout | Payment</p>
+              <hr />
+              <h4 className="cartsummaryh4">Total: {totalPrice()}</h4>
+              {auth?.user?.address ? (
+                <div className="mb-3">
+                  <h5>Current Address</h5>  
+                  <h6>{auth?.user?.address}</h6>
                   <button
-                    className="btn btn-outline-warning"
+                    className="btn paybutton1"
                     onClick={() =>
-                      navigate(`/dashboard/${auth?.user?.role === 1 ? "admin" : "user"}/profile`)
+                    //  navigate(`/dashboard/${auth?.user?.role == 1 ? "admin/orders" : "user/orders"}`)
+                    { console.log("User Role:", auth?.user?.role);
+                      if (auth?.user?.role == 1) {
+                        navigate("/dashboard/admin/profile");
+                      } else if (auth?.user?.role == 0) {
+                        navigate("/dashboard/user/profile");
+                      } else {
+                        navigate("/dashboard"); // Fallback if the role is undefined
+                      }  
+                    }
+                      // navigate(`/dashboard/${auth?.user?.role === 1 ? "admin/profile" : "user/profile"}`)
                     }
                   >
                     Update Address
                   </button>
-                ) : (
-                  <button
-                    className="btn btn-outline-warning"
-                    onClick={() =>
-                      navigate("/login", {
-                        state: "/cart",
-                      })
-                    }
-                  >
-                    Please Login to Checkout
+                  <br />
+                  <button className="btn me-2 mt-2 paybutton2" onClick={()=>{navigate("/store")}}>Continue Shopping</button>
+                  <button className="btn paybutton mt-2" onClick={paymentHandler}>
+                    Checkout
                   </button>
-                )}
-              </div>
-            )}
-          </div>
+                </div>
+              ) : (
+                <div className="mb-3">
+                  {auth?.token ? (
+                    <button
+                      className="btn btn-outline-warning"
+                      onClick={() =>
+                        navigate('/dashboard/admin/orders')
+                      }
+                    >
+                      Update Address
+                    </button>
+                  ) : (
+                    <button
+                      className="btn btn-outline-warning"
+                      onClick={() => navigate("/login", {
+                        state: "/cart"
+                      })}
+                    >
+                      Plase Login to Checkout
+                    </button>
+                  )}
+                </div>
+              )}
+            </div>
+          )}
         </div>
       </div>
     </Layout>

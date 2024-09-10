@@ -27,7 +27,7 @@ router.get("/user-auth",requireSignIn,(req,res)=>{
 
 // protected admin route auth
 router.get("/admin-auth",requireSignIn,isAdmin,(req,res)=>{
-    console.log("ye chal rahai ")
+   
     res.status(200).send({data:{ok:true}})
 
 })

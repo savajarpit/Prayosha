@@ -1,72 +1,104 @@
-   /* footer start */
-
-   footer {
-    /* background: #232831; */
-    background:#f0f0f0;
+/* footer start */
+footer {
+    background: #f0f0f0;
     position: relative;
     padding: 30px 0px;
-}
-footer ul {
-    list-style-type: none;
+    overflow-x: hidden; /* Hide horizontal overflow */
 }
 
-footer ul li a{
-    color:#fff;
- text-decoration: none;
- 
+footer ul {
+    list-style-type: none;
+    padding-left: 0; /* Remove default padding */
 }
-footer ul li{
+
+footer ul li a {
+    color: #fff;
+    text-decoration: none;
+}
+
+footer ul li {
     margin-bottom: 10px;
-    position:relative;
-    left:-25px;
+    position: relative;
 }
-.menulist::before{
+
+.menulist::before {
     position: relative;
     content: "\f192";
     top: 2px;
     left: -5px;
-    /* color: #fb7c00; */
-    color: #fdc500;
+    color: #1f385d;
     font-size: 14px;
     font-family: "Font Awesome 5 Free";
 }
+
 .continfo li:before {
     content: "\f095";
     color: #fff;
     font-size: 22px;
     position: relative;
 }
-.textcolor{
+
+.textcolor {
     color: #fff;
 }
-body a{
+
+body a {
     text-decoration: none;
 }
+
 .fa-facebook-f:before {
     content: "\f39e";
 }
+
+.footer-social ul {
+    padding-left: 0; /* Remove default padding */
+}
+
 .footer-social ul li {
     margin: 0 5px 0 0;
-    padding: 0px 0px;
+    padding: 0px;
     list-style: none;
     display: inline-block;
     font-size: 20px;
     line-height: 1.6;
 }
+
 .footer-social ul li a {
-    /* background: rgba(255, 255, 255, 0.2); */
-     background: rgba(25, 25, 25, 0.301); 
+    background: rgba(128, 128, 130, 0.301); 
     display: block;
     width: 50px;
     height: 50px;
     text-align: center;
     line-height: 50px;
     border-radius: 50px;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
-.ftextcolor
-{
-    /* color: #8c8c8c; */
-     color: #7a7979; 
+
+.ftextcolor {
+    color: #7a7979; 
+}
+
+.fa-instagram, .fa-youtube, .fa-facebook-f {
+    color: #2a6496;
+}
+
+.footer-social ul li a:hover {
+    background-color: #2a6496;
+}
+
+.footer-social ul li a:hover i {
+    color: white;
+}
+
+.footerCopyright {
+    padding: 2rem;
+    text-align: center;
+}
+
+@media screen and (max-width: 768px) {
+    .footerCopyright {
+        text-align: center;
+    }
     
+   
 }
-/* footer end */

@@ -26,45 +26,49 @@ import Categories from "./pages/Categories";
 import CategoryProduct from "./pages/CategoryProduct";
 import CartPage from "./pages/CartPage";
 import AdminOrders from "./pages/Admin/AdminOrders";
-
+import Termsofservices from "./pages/Termsofservices";
+import Refundandreturn from "./pages/Refundandreturn";
+import Shipingpolicy from "./pages/Shipingpolicy";
+import Adminprofile from "./pages/Admin/Adminprofile";
 
 function App() {
   const [count, setCount] = useState(0);
 
   return (
     <Routes>
+      
       <Route path="/" element={<Homepage />} />
       <Route path="/search" element={<Search />} />
-      <Route path="/cart" element={<CartPage/>} />
+      <Route path="/cart" element={<CartPage />} />
       <Route path="/product/:slug" element={<ProductDetails />} />
-      <Route path="/categories" element={<Categories/>} />
-      <Route path="/category/:slug" element={<CategoryProduct/>} />
+      <Route path="/categories" element={<Categories />} />
+      <Route path="/category/:slug" element={<CategoryProduct />} />
       <Route path="/Store" element={<Store />} />
-      <Route path="/about" element={<Aboutpage />}/>
-      <Route path="/dashboard" element={<PrivetRoute/>}>
-
-
-         <Route path="user"  element={<Dashboard />}/>
-         <Route path="user/profile"  element={<Profile/>}/>
-         <Route path="user/orders"  element={<Orders/>}/>
+      <Route path="/Termsofservices" element={<Termsofservices />} />
+      <Route path="/RefundandReturn" element={<Refundandreturn />} />
+      <Route path="/shipingpolicy" element={<Shipingpolicy />} />
+      <Route path="/about" element={<Aboutpage />} />
+      <Route path="/dashboard" element={<PrivetRoute />}>
+        <Route path="user" element={<Dashboard />} />
+        <Route path="user/profile" element={<Profile />} />
+        <Route path="user/orders" element={<Orders />} />
       </Route>
-      <Route path="/dashboard" element={<AdminRoute/>}>
-
-
-         <Route  path="admin" element={<Admindashboard/>}/>
-         <Route  path="admin/create-category" element={<CreateCategory/>}/>
-         <Route  path="admin/create-product" element={<CreateProduct/>}/>
-         <Route  path="admin/products" element={<Products/>}/>
-         <Route  path="admin/product/:slug" element={<UpdateProduct/>}/>
-         <Route  path="admin/users" element={<Users/>}/>
-         <Route path="admin/orders"  element={<AdminOrders/>}/>
+      <Route path="/dashboard" element={<AdminRoute />}>
+        <Route path="admin" element={<Admindashboard />} />
+        <Route path="admin/create-category" element={<CreateCategory />} />
+        <Route path="admin/create-product" element={<CreateProduct />} />
+        <Route path="admin/products" element={<Products />} />
+        <Route path="admin/product/:slug" element={<UpdateProduct />} />
+        <Route path="admin/users" element={<Users />} />
+        <Route path="admin/orders" element={<AdminOrders />} />
+        <Route path="admin/profile" element={<Adminprofile />} />
       </Route>
-      <Route path="/contact" element={<Contectpage />}/>
-      <Route path="/policy" element={<Privacypolicypage />}/>
-      <Route path="/register" element={<Registerpage/>}/>
-      <Route path="/forgotpassword" element={<Forgotpassword/>}/>
-      <Route path="/login" element={<Loginpage/>}/>
-      <Route path="*" element={<Pagenotfound />}/>
+      <Route path="/contact" element={<Contectpage />} />
+      <Route path="/policy" element={<Privacypolicypage />} />
+      <Route path="/register" element={<Registerpage />} />
+      <Route path="/forgotpassword" element={<Forgotpassword />} />
+      <Route path="/login" element={<Loginpage />} />
+      <Route path="*" element={<Pagenotfound />} />
     </Routes>
   );
 }

@@ -23,13 +23,13 @@ function Layout({ children, title, description, keywords, author }) {
 
       <Header />
       <main style={{ minHeight: "77vh" }}>
-        <Toaster >
+        <Toaster gutter={12} >
         {(t) => (
     <ToastBar
       toast={t}
       style={{
         ...t.style,
-        animation: t.visible ? 'custom-enter 1s ease' : 'custom-exit 5s ease',
+        animation: t.visible ? 'custom-enter 0.5s ease' : 'custom-exit 0.5s ease',
       }}
     />
   )}

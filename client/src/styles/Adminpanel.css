@@ -1,0 +1,7 @@
+.adminpanellink.active{
+   background-color: #022760;
+}
+.adminpanellink:hover{
+    background-color:#6499e9;
+    color: white;
+}

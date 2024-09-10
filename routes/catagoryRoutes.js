@@ -1,6 +1,6 @@
 import express from 'express'
 import { isAdmin, requireSignIn } from '../middlewares/authMiddleware.js'
-import { createcategoryController,updatecategoryController,categoryControlller,singleCategoryController,deleteCategoryCOntroller} from '../controllers/categoryController.js'
+import { createcategoryController,updatecategoryController,categoryControlller,singleCategoryController,deleteCategoryCOntroller, getusercountcontroller} from '../controllers/categoryController.js'
 const router =express.Router()
 
 // routes
@@ -23,6 +23,8 @@ router.delete(
     isAdmin,
     deleteCategoryCOntroller
   );
-  
+ 
+// user count router
+router.get("/user-counts",requireSignIn,isAdmin,getusercountcontroller)  
 
 export default router

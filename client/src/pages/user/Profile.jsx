@@ -21,6 +21,7 @@ const Profile = () => {
     setPhone(phone);
     setEmail(email);
     setAddress(address);
+    window.scrollTo(0, 0);
   }, [auth?.user]);
 
   // form function
@@ -51,7 +52,7 @@ const Profile = () => {
   };
   return (
     <Layout title={"Your Profile"}>
-      <div className="container-fluid m-3 p-3">
+      <div className="container-fluid mt-4">
         <div className="row">
           <div className="col-md-3">
             <Usermenu />
@@ -59,7 +60,7 @@ const Profile = () => {
           <div className="col-md-9">
             <div className="Registerpage">
               <div className="wrapper">
-                <h2>Registration</h2>
+                <h2>User Profile</h2>
                 <form onSubmit={handleSubmit}>
                   <div className="input-box">
                     <input

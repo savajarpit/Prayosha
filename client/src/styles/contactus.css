@@ -1,0 +1,58 @@
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.wrapper, .company-info {
+    animation: slideUp 0.8s ease-out;
+}
+
+.company-info {
+    padding: 20px;
+    border-radius: 5px;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.info-title h5, .info-text, .info-link, .contactheading {
+    animation: slideUp 0.8s ease-out forwards;
+}
+
+.wrapper, .company-info {
+    opacity: 0;
+    transform: translateY(20px);
+    animation-fill-mode: forwards;
+}
+
+.wrapper {
+    animation-delay: 0.3s;
+}
+
+.company-info {
+    animation-delay: 0.5s;
+}
+
+@media screen and (max-width: 768px) {
+    .info-title {
+        font-size: 1.1rem;
+    }
+
+    .contactheading {
+        font-size: 1.5rem;
+        font-weight: 300;
+    }
+}
+
+.contactheading {
+    color: #022760;
+    font-size: 2rem;
+    font-weight: 500;
+    margin-top: 2px;
+    letter-spacing: 0.1rem;
+}

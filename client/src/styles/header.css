@@ -1,0 +1,115 @@
+.navbar{
+    /* background-color: #022760; */
+    background-color: #3261a9;
+    /* background-color: rgb(239, 244, 156);  */
+}
+.nav-link{
+    color: white;
+}
+.nav-link:hover{
+    color: #6499e9 !important;
+    /* color: #022760 !important; */
+}
+/* navbar css */
+.navbar{
+    font-family: "Poppins",serif;
+    font-size: 17px;
+    line-height: 26px;
+    text-transform: uppercase;
+    box-shadow:0px 8px 6px -6px gray;
+    --webkit-box-shadow:0px 8px 6px -6px gray;
+    border-bottom: solid gray !important
+   }
+   .nav-link{
+     font-weight: 300 !important;
+   }
+   .active{
+    color: white !important;
+    border-bottom: 2px solid white;
+   }
+   .navbar-brand{
+    
+   }
+  .dropdown-item:hover{
+    background-color: #6499e9 !important;
+    color: white !important;
+}
+.dropdown-item.active{
+    color: white !important;
+      background-color: #022760 !important;
+
+  }
+
+  .specialclass.active{
+    color:white;
+  }
+
+ /* In your header.css file */
+
+/* Style for the hamburger button */
+.navbar-toggler {
+  border: none; /* Remove border */
+  background-color: transparent; /* Ensure the background is transparent */
+  color: white; /* Set the color of the icon to white */
+}
+
+/* Style for the hamburger and close icons */
+.navbar-toggler .hamburger-icon,
+.navbar-toggler .close-icon {
+  color: white; /* Set the color of the icons to white */
+}
+
+/* Ensure the close icon is hidden initially */
+.navbar-toggler .close-icon {
+  display: none;
+}
+
+/* Show close icon when navbar is open */
+.navbar-toggler.open .hamburger-icon {
+  display: none;
+}
+
+.navbar-toggler.open .close-icon {
+  display: block;
+}
+
+/* Ensure the icons are displayed correctly */
+.hamburger-icon,
+.close-icon {
+  font-size: 1.5rem; /* Adjust icon size as needed */
+}
+
+.navbar-toggler:focus,
+.navbar-toggler:active {
+  outline: none; /* Remove default focus outline */
+  box-shadow: none; /* Remove any box-shadow applied */
+  border: none; /* Ensure no border is present */
+}
+
+
+.cart-icon {
+  font-size: 1.8rem; /* Increase the size of the cart icon */
+  position: relative;
+}
+
+.cart-icon .ant-badge-count {
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  font-size: 0.8rem; /* Make the badge smaller */
+}
+
+@media (max-width: 576px) {
+  .navbar-nav .nav-link {
+    border-bottom: none; /* Remove border */
+    text-decoration: none !important; /* Remove underline */
+  }
+  
+ 
+}
+
+
+
+
+
+

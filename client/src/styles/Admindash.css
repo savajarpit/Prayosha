@@ -1,0 +1,34 @@
+.divbox {
+    background-color: #f8f9fa; /* Light grey background */
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width:100%;/* Ensure it doesn't exceed screen width */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Add transition effect */
+}
+    
+.divbox:hover {
+    transform: translateY(-5px); /* Slightly move up on hover */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Enhance shadow on hover */
+}
+
+
+
+.subdivbox {
+    background-color: #ffffff; /* White background for each box */
+    padding: 15px;
+    border: 2px solid #022760  ;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Add transition effect */
+}
+
+.subdivbox:hover {
+    transform: translateY(-5px); /* Slightly move up on hover */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15); /* Enhance shadow on hover */
+}
+
+.h4title {
+    font-weight: bold;
+    color: rgb(96, 15, 137);
+}

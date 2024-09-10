@@ -1,0 +1,24 @@
+.productItemd {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.5s ease-out forwards;
+  }
+.productItemd{
+    
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    margin: 10px; /* Add margin for gap between cards */
+  }
+  @media (max-width: 576px) {
+    .productItemd {
+      width: calc(100% - 20px); /* Two cards per row on mobile with a gap */
+      margin: 10px; /* Adjust margin to ensure the cards fit within the screen width */
+      
+    }
+  }

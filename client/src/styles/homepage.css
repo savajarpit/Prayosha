@@ -1,0 +1,46 @@
+/* Full height for the banner container */
+.home-banner {
+  
+  overflow: hidden; /* Ensure no overflow from the image */
+}
+
+/* Ensure the image fills the container properly */
+.banner-image {
+  height: 100%; /* Fill the entire height */
+  object-fit: cover; /* Ensures the image covers the entire container without stretching */
+  object-position: center; /* Centers the image in the container */
+}
+
+/* Optional: Adjustments for small screens */
+@media (max-width: 768px) {
+  .banner-image {
+      object-fit: cover; /* Ensures the image fills the container even on small screens */
+      height: 80%; /* Full height for small screens */
+  }
+ 
+}
+/* Custom gap for small screens */
+.custom-gap .col-6,
+.custom-gap .col-sm-4 {
+    padding-left: 1px;  /* Adjust the padding as needed */
+    padding-right: 1px; /* Adjust the padding as needed */
+}
+
+/* Optional: If you need even finer control */
+.custom-gap {
+    margin-left: -10px; /* Adjust margin to reduce space */
+    margin-right: -10px; /* Adjust margin to reduce space */
+}
+.expobtn{
+  border: 3px solid rgb(64, 1, 103);
+  /* background-color: rgb(243, 224, 12); */
+  color: rgb(64, 1, 103);
+  font-weight: 600;
+}
+.expobtn:hover{
+  background-color:rgb(64, 1, 103) ;
+  /* background-color: rgb(243, 224, 12); */
+  color: white;
+  font-weight: 600;
+}
+

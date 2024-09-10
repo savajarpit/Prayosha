@@ -1,0 +1,134 @@
+/* Basic styles for product cards */
+.productItem {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.5s ease-out forwards;
+  }
+  
+  /* Fade-in animation */
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  /* Styles for product image */
+  .productimage img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+  }
+  
+  /* Zoom effect on hover */
+  .productimage:hover img {
+    transform: scale(1.05);
+  }
+  
+  /* Loading animation for the Loadmore button */
+  .btn-loading {
+    position: relative;
+    pointer-events: none;
+    opacity: 0.7;
+  }
+  
+  .btn-loading::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 20px;
+    height: 20px;
+    margin-left: -10px;
+    margin-top: -10px;
+    border-radius: 50%;
+    border: 2px solid #fff;
+    border-top-color: transparent;
+    animation: spin 0.7s linear infinite;
+  }
+  
+  /* Spin animation for the loading spinner */
+  @keyframes spin {
+    to {
+      transform: rotate(360deg);
+    }
+  }
+  
+  /* Custom styles for buttons */
+  button.btn {
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  button.btn:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Style for the filter button */
+  button.btn-primary {
+    background-color: #022760;
+    border: none;
+  }
+  
+  /* Style for the secondary button */
+  button.btn-secondary {
+    background-color: #548fe7;
+    border: none;
+  }
+  
+  /* Fade-in effect for the filter section */
+  .filter-section {
+    opacity: 0;
+    transform: translateY(-10px);
+    animation: fadeIn 0.3s ease-out forwards;
+  }
+  
+  /* Fade-in animation for filter section */
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  /* Style for the store heading */
+  .storeh1 {
+    font-family: sans-serif;
+    font-size: 2rem;
+    font-weight: 500;
+  }
+  
+  .sline {
+    background-color: blue;
+    border: none;
+    border-radius: 0.5rem;
+    height: 0.2rem;
+    width: 12%;
+    margin-top: -2px;
+  }
+  .productItem{
+    
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    margin: 10px; /* Add margin for gap between cards */
+  }
+  @media (max-width: 576px) {
+    .productItem {
+      width: calc(120% - 20px); /* Two cards per row on mobile with a gap */
+      margin: 10px; /* Adjust margin to ensure the cards fit within the screen width */
+    }
+  }

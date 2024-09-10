@@ -1,4 +1,5 @@
 import catagoryModel from "../models/catagoryModel.js";
+import userModel from "../models/userModel.js";
 import slugify from "slugify";
 export const createcategoryController = async (req, res) => {
   try {
@@ -100,3 +101,19 @@ export const deleteCategoryCOntroller = async (req, res) => {
     }
   };
 
+  export const getusercountcontroller=async(req,res)=>{
+    try {
+      const total = await userModel.find({}).estimatedDocumentCount();
+      res.status(200).send({
+        success: true,
+        total,
+      });
+    } catch (error) {
+      console.log(error);
+      res.status(400).send({
+        message: "Error in product count",
+        error,
+        success: false,
+      });
+    }
+  }

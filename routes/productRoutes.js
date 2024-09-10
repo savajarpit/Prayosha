@@ -66,4 +66,6 @@ router.get("/product-category/:slug", productCategoryController);
 router.post("/order",requireSignIn,razorpaypaymentController)
 
 router.post("/validate",paymentvalidatecontroller)
+
+
 export default router
