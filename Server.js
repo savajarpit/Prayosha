@@ -5,7 +5,7 @@ import connectdb from './config/db.js'
  import authRoute from './routes/authRoute.js'
  import catagoryRoutes from './routes/catagoryRoutes.js'
  import productRoutes from './routes/productRoutes.js'
-
+import path from path
 
 
 import cors from 'cors'
@@ -22,6 +22,7 @@ const app=express()
 app.use(cors())
 app.use(express.json())
 app.use(morgan('dev'))
+app.use(express.static(path.join(__dirname,"./client/build")))
 
 //routes
 app.use("/api/v1/auth",authRoute)
@@ -30,8 +31,8 @@ app.use("/api/v1/product",productRoutes)
 app.use("/api/v1/payment",productRoutes)
 
 // rest api
-app.get("/",(req,res)=>{
-    res.send('<h1>hello</h1>')
+app.use("*",function(req,res){
+    res.sendFile(path.join(__dirname,'.client/build/index.html'))
 })
 
 // PORT
