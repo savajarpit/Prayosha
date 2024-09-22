@@ -11,12 +11,12 @@ export default function AdminRoute() {
 
   useEffect(() => {
     const authCheck = async () => {
-      const res = await axios.get(`${import.meta.env.VITE_APIS}/api/v1/auth/user-auth`,{
+      const res = await axios.get(`https://prayosha-backend.onrender.com/api/v1/auth/user-auth`,{
         headers: {
           Authorization:  auth?.token
         },
       });
-      console.log(res.data.data.ok)
+    
       if (res.data.data.ok) {
         setOk(true);
        

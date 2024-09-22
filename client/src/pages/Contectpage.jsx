@@ -8,7 +8,7 @@ function Contectpage() {
     window.scrollTo(0, 0);
   })
   return (
-    <Layout title={"Contact-us"}>
+    <Layout title={"Contact-us - prayoshaoil"}>
       <div className="container">
         <div className="row">
           <div className="col-md-12 text-center">
@@ -62,11 +62,11 @@ function Contectpage() {
                       {" "}
                       -{" "}
                       <a
-                        href="mailto:fuelflexindia@gmail.com"
+                        href="mailto:Prayoshanaturaloil@gmail.com"
                         className="info-link"
                         style={{ color: "#495057" }}
                       >
-                        prayoshaoil@gmail.com
+                        Prayoshanaturaloil@gmail.com
                       </a>
                     </span>
                   </h5>
@@ -77,11 +77,11 @@ function Contectpage() {
                       {" "}
                       -{" "}
                       <a
-                        href="tel:+919265067663"
+                        href="tel:+91 8849287519"
                         className="info-link"
                         style={{ color: "#495057" }}
                       >
-                        +91 6353483929
+                        +91 8849287519
                       </a>
                     </span>
                   </h5>
@@ -92,9 +92,8 @@ function Contectpage() {
                       {" "}
                       - Shayona sales
                       <p>
-                        321, Arth Business Center(abc),Opposite TorrentPower
-                        SubStation,Sardar Patel Ring Rd, Ahmedabad, Gujarat
-                        382350
+                      Shop No. 1 & 2, Gayatrinagar Society,Beside Tapovan School,Nana Varachha, Surat, Gujarat
+                        395006
                       </p>
                     </span>
                   </h5>

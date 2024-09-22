@@ -157,10 +157,10 @@ const Shipingpolicy = () => {
             <h2 className="shipping-section-title">7. Contact Us:</h2>
             <p className="shipping-subsection-content">
               If you have any questions or concerns about our Shipping Policy,
-              please contact our concerned person at +91 92650 67663 or write to
+              please contact our concerned person at +91 8849287519 or write to
               us at{" "}
-              <a href="mailto:prayoshaoil@gmail.com" className="policy-link">
-                prayoshaoil@gmail.com
+              <a href="mailto:Prayoshanaturaloil@gmail.com" className="policy-link">
+              Prayoshanaturaloil@gmail.com
               </a>
               .
             </p>
@@ -170,10 +170,10 @@ const Shipingpolicy = () => {
           {" "}
           <address className="shipping-address">
             Prayosha Oil <br />
-            321, Arth Business Center(abc),<br />
-Opposite TorrentPower SubStation, <br />
-Sardar Patel Ring Rd, <br />
-Ahmedabad, Gujarat 382350 <br />
+            Shop No. 1 & 2,Gayatri Nagar Society,<br />
+              Beside Tapovan School<br />
+              Nana Varachha,<br />
+                Surat, Gujarat 395006<br/>
           </address>
         </div>
       </div>

@@ -17,7 +17,7 @@ function Loginpage() {
     e.preventDefault();
     try {
       const res = await axios.post(
-        `${import.meta.env.VITE_APIS}/api/v1/auth/login`,
+        `https://prayosha-backend.onrender.com/api/v1/auth/login`,
         {  email, password }
       );
       if (res && res.data.success) {
@@ -33,7 +33,7 @@ function Loginpage() {
     }
   };
   return (
-    <Layout title={"Login/Register"}>
+    <Layout title={"Login/Register -prayoshaoil"}>
       <div className="Registerpage">
         <div className="wrapper">
           <h2>Login</h2>

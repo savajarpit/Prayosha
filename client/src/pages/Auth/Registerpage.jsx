@@ -16,7 +16,7 @@ function Registerpage() {
     const handelsubmit=async(e)=>{
         e.preventDefault()
         try{
-          const res=await axios.post(`${import.meta.env.VITE_APIS}/api/v1/auth/register`,{name,email,password,phone,address,answer});
+          const res=await axios.post(`https://prayosha-backend.onrender.com/api/v1/auth/register`,{name,email,password,phone,address,answer});
           if(res && res.data.success){
             toast.success(res.data && res.data.message)
             navigate('/login')
@@ -32,7 +32,7 @@ function Registerpage() {
     }
     
   return (
-    <Layout>
+    <Layout title={"register-prayoshaoil"}>
       <div className="Registerpage">
         <div className="wrapper">
           <h2>Registration</h2>

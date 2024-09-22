@@ -14,7 +14,7 @@ const Admindashboard = () => {
   const getusercount = async () => {
     try {
       const { data } = await axios.get(
-        `${import.meta.env.VITE_APIS}/api/v1/category/user-counts`
+        `https://prayosha-backend.onrender.com/api/v1/category/user-counts`
       );
       setuserc(data.total);
     } catch (error) {
@@ -27,7 +27,7 @@ const Admindashboard = () => {
   const getAllProducts = async () => {
     try {
       const { data } = await axios.get(
-        `${import.meta.env.VITE_APIS}/api/v1/product/get-product`
+        `https://prayosha-backend.onrender.com/api/v1/product/get-product`
       );
       setProducts(data.products);
     } catch (error) {
@@ -39,7 +39,7 @@ const Admindashboard = () => {
   const getOrders = async () => {
     try {
       const { data } = await axios.get(
-        `${import.meta.env.VITE_APIS}/api/v1/auth/all-orders`
+        `https://prayosha-backend.onrender.com/api/v1/auth/all-orders`
       );
       setOrders(data);
     } catch (error) {

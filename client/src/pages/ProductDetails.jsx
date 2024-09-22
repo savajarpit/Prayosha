@@ -22,7 +22,7 @@ const ProductDetails = () => {
   const getProduct = async () => {
     try {
       const { data } = await axios.get(
-        `${import.meta.env.VITE_APIS}/api/v1/product/get-product/${params.slug}`
+        `https://prayosha-backend.onrender.com/api/v1/product/get-product/${params.slug}`
       );
       setProduct(data?.product);
       getSimilarProduct(data?.product._id, data?.product.category._id);
@@ -34,9 +34,7 @@ const ProductDetails = () => {
   const getSimilarProduct = async (pid, cid) => {
     try {
       const { data } = await axios.get(
-        `${
-          import.meta.env.VITE_APIS
-        }/api/v1/product/related-product/${pid}/${cid}`
+        `https://prayosha-backend.onrender.com/api/v1/product/related-product/${pid}/${cid}`
       );
       setRelatedProducts(data?.products);
     } catch (error) {
@@ -63,7 +61,7 @@ const addToCart = () => {
       <div className="row container mt-2">
         <div className="col-md-6">
           <img
-            src={`${import.meta.env.VITE_APIS}/api/v1/product/product-photo/${
+            src={`https://prayosha-backend.onrender.com/api/v1/product/product-photo/${
               product._id
             }`}
             className="card-img-top"
@@ -107,7 +105,7 @@ const addToCart = () => {
               <Link to={`/product/${p.slug}`} style={{ textDecoration: "none" }}>
                 <div className="productimage" style={{ width: "100%", height: "180px", overflow: "hidden" }}>
                   <img
-                    src={`${import.meta.env.VITE_APIS}/api/v1/product/product-photo/${p._id}`}
+                    src={`https://prayosha-backend.onrender.com/api/v1/product/product-photo/${p._id}`}
                     alt={p.name}
                     className="productImg"
                     style={{ width: "100%", height: "100%", objectFit: "cover" }}

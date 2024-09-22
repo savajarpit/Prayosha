@@ -23,7 +23,7 @@ const Store = () => {
   const getAllCategory = async () => {
     try {
       const { data } = await axios.get(
-        `${import.meta.env.VITE_APIS}/api/v1/category/get-category`
+        `https://prayosha-backend.onrender.com/api/v1/category/get-category`
       );
       if (data?.success) {
         setCategories(data?.category);
@@ -57,7 +57,7 @@ const Store = () => {
     try {
       setLoading(true);
       const { data } = await axios.get(
-        `${import.meta.env.VITE_APIS}/api/v1/product/product-list/${page}`
+        `https://prayosha-backend.onrender.com/api/v1/product/product-list/${page}`
       );
       setLoading(false);
       setProducts(data.products);
@@ -71,7 +71,7 @@ const Store = () => {
   const getTotal = async () => {
     try {
       const { data } = await axios.get(
-        `${import.meta.env.VITE_APIS}/api/v1/product/product-count`
+        `https://prayosha-backend.onrender.com/api/v1/product/product-count`
       );
       setTotal(data?.total);
     } catch (error) {
@@ -89,7 +89,7 @@ const Store = () => {
     try {
       setLoading(true);
       const { data } = await axios.get(
-        `${import.meta.env.VITE_APIS}/api/v1/product/product-list/${page}`
+        `https://prayosha-backend.onrender.com/api/v1/product/product-list/${page}`
       );
       setLoading(false);
       setProducts([...products, ...data?.products]);
@@ -122,7 +122,7 @@ const Store = () => {
   const filterProduct = async () => {
     try {
       const { data } = await axios.post(
-        `${import.meta.env.VITE_APIS}/api/v1/product/product-filters`,
+        `https://prayosha-backend.onrender.com/api/v1/product/product-filters`,
         {
           checked,
           radio,
@@ -135,7 +135,7 @@ const Store = () => {
   };
 
   return (
-    <Layout title={"Explore-Store"}>
+    <Layout title={"Explore-Store -prayoshaoil"}>
       <div className="container-fluid row mt-3">
         <div className="col-md-2">
           <button
@@ -241,9 +241,7 @@ const Store = () => {
                       }}
                     >
                       <img
-                        src={`${
-                          import.meta.env.VITE_APIS
-                        }/api/v1/product/product-photo/${p._id}`}
+                        src={`https://prayosha-backend.onrender.com/api/v1/product/product-photo/${p._id}`}
                         alt={p.name}
                         className="productImg"
                         style={{

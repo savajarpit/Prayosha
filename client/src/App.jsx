@@ -29,6 +29,7 @@ import Termsofservices from "./pages/Termsofservices";
 import Refundandreturn from "./pages/Refundandreturn";
 import Shipingpolicy from "./pages/Shipingpolicy";
 import Adminprofile from "./pages/Admin/Adminprofile";
+import Bulkorder from "./pages/Bulkorder";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -38,6 +39,7 @@ function App() {
       
       <Route path="/" element={<Homepage />} />
       <Route path="/search" element={<Search />} />
+      <Route path="/bulk" element={<Bulkorder />} />
       <Route path="/cart" element={<CartPage />} />
       <Route path="/product/:slug" element={<ProductDetails />} />
       <Route path="/categories" element={<Categories />} />
@@ -63,7 +65,7 @@ function App() {
         <Route path="admin/profile" element={<Adminprofile />} />
       </Route>
       <Route path="/contact" element={<Contectpage />} />
-      <Route path="/policy" element={<Privacypolicypage />} />
+      
       <Route path="/register" element={<Registerpage />} />
       <Route path="/forgotpassword" element={<Forgotpassword />} />
       <Route path="/login" element={<Loginpage />} />

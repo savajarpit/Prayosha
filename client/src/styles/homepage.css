@@ -44,3 +44,23 @@
   font-weight: 600;
 }
 
+
+.testimonial-card .card {
+  max-width: 500px;
+  border-radius: 10px;
+  background-color: #f9f9f9;
+}
+
+.testimonial-text {
+  font-size: 1.1rem;
+  font-style: italic;
+  color: #555;
+}
+
+.carousel-indicators button {
+  background-color: #555;
+}
+
+.carousel-indicators .active {
+  background-color: #333;
+}

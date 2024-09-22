@@ -41,9 +41,9 @@ function Layout({ children, title, description, keywords, author }) {
   );
 }
 Layout.defaultProps = {
-  title: "E-commerce-shop now",
-  description: "mern stack project",
-  author: "AS",
-  keywords: "mern,react,node,mongodb",
+  title: "prayosha oil online store ",
+  description: "100% original oil",
+  author: "prayoshaoil",
+  keywords: "prayosha oil ,prayoshasingtel,oil,penut oil,sing tel,groundnut",
 };
 export default Layout;

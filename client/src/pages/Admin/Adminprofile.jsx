@@ -28,7 +28,7 @@ const Adminprofile = () => {
     e.preventDefault();
     try {
       const { data } = await axios.put(
-        `${import.meta.env.VITE_APIS}/api/v1/auth/profile`,
+        `https://prayosha-backend.onrender.com/api/v1/auth/profile`,
         {
           name,
           email,

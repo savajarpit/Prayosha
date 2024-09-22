@@ -9,6 +9,21 @@ const Search = () => {
   const [values, setValues] = useSearch();
   const navigate = useNavigate();
   const [cart, setCart] = useCart();
+  const addToCart = (product) => {
+    // Check if the product is already in the cart
+    const existingProduct = cart.find((item) => item._id === product._id);
+    if (!existingProduct) {
+      const updatedCart = [...cart, product];
+      setCart(updatedCart);
+      localStorage.setItem("cart", JSON.stringify(updatedCart));
+      navigate("/cart");
+    } else {
+      navigate("/cart");
+    }
+  };
+
+
+
 
   return (
     <Layout title={"Search results"}>
@@ -60,7 +75,7 @@ const Search = () => {
                   <Link to={`/product/${p.slug}`} style={{ textDecoration: "none" }}>
                     <div className="productimage" style={{ width: "100%", height: "180px", overflow: "hidden" }}>
                       <img
-                        src={`${import.meta.env.VITE_APIS}/api/v1/product/product-photo/${p._id}`}
+                        src={`https://prayosha-backend.onrender.com/api/v1/product/product-photo/${p._id}`}
                         alt={p.name}
                         className="productImg"
                         style={{ width: "100%", height: "100%", objectFit: "cover" }}
@@ -85,9 +100,10 @@ const Search = () => {
                         className="btn btn-secondary"
                         style={{ width: "100%", padding: "8px", fontSize: "14px", whiteSpace: "nowrap",backgroundColor:"#022760" }}
                         onClick={() => {
-                          setCart([...cart, p]);
-                          localStorage.setItem("cart", JSON.stringify([...cart, p]));
-                          toast.success("Item Added to cart");
+                          // setCart([...cart, p]);
+                          // localStorage.setItem("cart", JSON.stringify([...cart, p]));
+                          // toast.success("Item Added to cart");
+                          addToCart(p);
                         }}
                       >
                         ADD TO CART

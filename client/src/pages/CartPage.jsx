@@ -6,6 +6,7 @@ import { useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
 import axios from "axios";
 import "../styles/cartpage.css";
+import logowb1 from "../../photos/logowb1.png"
 
 const CartPage = () => {
   const [auth] = useAuth();
@@ -104,7 +105,7 @@ const CartPage = () => {
   // Payment handler
   const paymentHandler = async (event) => {
     const amounts = totalamount() * 100;
-    const response = await axios.post(`${import.meta.env.VITE_APIS}/api/v1/payment/order`, {
+    const response = await axios.post(`https://prayosha-backend.onrender.com/api/v1/payment/order`, {
       amount: amounts,
       currency: "INR",
       receipt: "1234567890"
@@ -117,13 +118,13 @@ const CartPage = () => {
       currency: "INR",
       name: "Prayosha Oil",
       description: "Test Transaction",
-      image: "https://scontent.fstv8-2.fna.fbcdn.net/v/t39.30808-6/227809428_210010607725670_3041727024764980399_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=a5f93a&_nc_ohc=C5zZpGizE4kQ7kNvgFFacSO&_nc_ht=scontent.fstv8-2.fna&oh=00_AYAuvEHTk77wQVbCNlaCcjU4WIN4IjaXtU4Wda_dgRmrYw&oe=66D3F11C",
+      image: {logowb1},
       order_id: order.id,
       handler: async function (response) {
         
 
         const body = { ...response, cart: updatedCart, email: auth?.user?.email, totalbill: amounts, paymentstatus: "Success" };
-        const validateResponse = await axios.post(`${import.meta.env.VITE_APIS}/api/v1/payment/validate`, body);
+        const validateResponse = await axios.post(`https://prayosha-backend.onrender.com/api/v1/payment/validate`, body);
         const jsonResponse = validateResponse.data;
 
         if (jsonResponse.msg === "ok") {
@@ -159,7 +160,7 @@ const CartPage = () => {
   };
 
   return (
-    <Layout>
+    <Layout title={"cart-prayoshaoil"}>
       <div className="container containercart">
         <div className="row">
           <div className="col-md-12">
@@ -208,7 +209,7 @@ const CartPage = () => {
               <div className="row mb-2 p-3 card flex-row" key={p._id}>
                 <div className="col-md-4">
                   <img
-                    src={`${import.meta.env.VITE_APIS}/api/v1/product/product-photo/${p._id}`}
+                    src={`https://prayosha-backend.onrender.com/api/v1/product/product-photo/${p._id}`}
                     className="card-img-top"
                     alt={p.name}
                     width="100%"
@@ -253,6 +254,7 @@ const CartPage = () => {
               <p>Total | Checkout | Payment</p>
               <hr />
               <h4 className="cartsummaryh4">Total: {totalPrice()}</h4>
+              
               {auth?.user?.address ? (
                 <div className="mb-3">
                   <h5>Current Address</h5>  

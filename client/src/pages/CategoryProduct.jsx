@@ -13,13 +13,28 @@ const CategoryProduct = () => {
   const [products, setProducts] = useState([]);
   const [category, setCategory] = useState([]);
 
+  const addToCart = (product) => {
+    // Check if the product is already in the cart
+    const existingProduct = cart.find((item) => item._id === product._id);
+    if (!existingProduct) {
+      const updatedCart = [...cart, product];
+      setCart(updatedCart);
+      localStorage.setItem("cart", JSON.stringify(updatedCart));
+      navigate("/cart");
+    } else {
+      navigate("/cart");
+    }
+  };
+
+
+  
   useEffect(() => {
     if (params?.slug) getPrductsByCat();
   }, [params?.slug]);
   const getPrductsByCat = async () => {
     try {
       const { data } = await axios.get(
-        `${import.meta.env.VITE_APIS}/api/v1/product/product-category/${params.slug}`
+        `https://prayosha-backend.onrender.com/api/v1/product/product-category/${params.slug}`
       );
       setProducts(data?.products);
       setCategory(data?.category);
@@ -91,9 +106,7 @@ const CategoryProduct = () => {
                       }}
                     >
                       <img
-                        src={`${
-                          import.meta.env.VITE_APIS
-                        }/api/v1/product/product-photo/${p._id}`}
+                        src={`https://prayosha-backend.onrender.com/api/v1/product/product-photo/${p._id}`}
                         alt={p.name}
                         className="productImg"
                         style={{

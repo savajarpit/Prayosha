@@ -62,8 +62,8 @@ function Footer() {
               <div className="footer-social">
                 <ul>
                   <li><Link to="https://www.facebook.com/Prayoshaoil/"><i className="fab fa-facebook-f" /></Link></li>
-                  <li><Link to="#"><i className="fab fa-instagram" /></Link></li>
-                  <li><Link to="#"><i className="fab fa-youtube" /></Link></li>
+                  <li><Link to="https://www.instagram.com/prayoshaoil?igsh=Mm9lOTVib3Z2bzRv"><i className="fab fa-instagram" /></Link></li>
+                  <li><Link to="https://youtu.be/LevNL6OmQbw?si=9ziLnidJfQHlQ-1Y"><i className="fab fa-youtube" /></Link></li>
                 </ul>
               </div>
             </div>
@@ -80,20 +80,20 @@ function Footer() {
             <div className="cphone">
               <span style={{marginLeft: 20,color:"#1f385d"}} className="textcolors">
                 <i className="fa-solid fa-phone icons" /></span>
-              <p style={{marginLeft: 50, marginTop: '-26px', color: '#134377'}} className><span style={{fontSize: 22}}>Phone</span> <br /><a href="tel:+91 9428794219" className="ftextcolor">+91 6353483929</a></p>
+              <p style={{marginLeft: 50, marginTop: '-26px', color: '#134377'}} className><span style={{fontSize: 22}}>Phone</span> <br /><a href="tel:+91 8849287519" className="ftextcolor">+91 8849287519</a></p>
             </div>
             {/* mail */}
             <div className="cphone">
               <span style={{marginLeft: 20,color:"#1f385d"}} className="textcolors"><i className="fa-solid fa-envelope-open" /></span>
-              <p style={{marginLeft: 50, marginTop: '-26px',}} className="textcolors"><span style={{fontSize: 22,color: '#134377'}}>Email</span> <br /><a href="mailto:Harpalconstruction12@gmail.com" className="ftextcolor">Prayoshaoil@gmail.com</a></p>
+              <p style={{marginLeft: 50, marginTop: '-26px',}} className="textcolors"><span style={{fontSize: 22,color: '#134377'}}>Email</span> <br /><a href="mailto:Prayoshanaturaloil@gmail.com" className="ftextcolor">Prayoshanaturaloil@gmail.com</a></p>
             </div>
             {/* address */}
             <div className="cphone">
               <span style={{marginLeft: 20,color:"#1f385d"}} className="textcolors"><i className="fa-solid fa-location-dot" /></span>
-              <p style={{marginLeft: 50, marginTop: '-26px'}} className="ftextcolor"><span style={{fontSize: 22,color: '#134377'}} className="textcolors">Address</span> <br />321, Arth Business Center(abc),<br />
-                Opposite TorrentPower SubStation,<br />
-                Sardar Patel Ring Rd,<br />
-                Ahmedabad, Gujarat 382350
+              <p style={{marginLeft: 50, marginTop: '-26px'}} className="ftextcolor"><span style={{fontSize: 22,color: '#134377'}} className="textcolors">Address</span> <br />Shop No. 1 & 2,Gayatri Nagar Society,<br />
+              Beside Tapovan School<br />
+              Nana Varachha,<br />
+                Surat, Gujarat 395006
               </p>
             </div>
           </div>

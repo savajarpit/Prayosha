@@ -97,6 +97,11 @@ function Header() {
                 </ul>
               </li>
               <li className="nav-item">
+                <NavLink to="/bulk" className="nav-link" aria-current="page">
+                  bulk order
+                </NavLink>
+              </li>
+              <li className="nav-item">
                 <NavLink to="/about" className="nav-link" aria-current="page">
                   About Us
                 </NavLink>

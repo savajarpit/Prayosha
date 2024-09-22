@@ -50,7 +50,7 @@ const Refundandreturn = () => {
   <h2 className="policy-section-title">2. Return Process:</h2>
   <h3 className="policy-subtitle">a. Authorization:</h3>
   <p className="policy-text">
-    Before returning any items, please contact our customer support team at <a href="mailto:prayoshaoil@gmail.com" className="policy-link">prayoshaoil@gmail.com</a> 
+    Before returning any items, please contact our customer support team at <a href="mailto:Prayoshanaturaloil@gmail.com" className="policy-link">Prayoshanaturaloil@gmail.com</a> 
     to obtain authorization. Unauthorized returns may not be accepted.
   </p>
   <h3 className="policy-subtitle">b. Condition of Products:</h3>
@@ -89,16 +89,16 @@ const Refundandreturn = () => {
   </div>
   <div className="container"><h2 className="policy-section-title">6. Contact Us:</h2>
   <p className="policy-text">
-    If you have any questions or concerns about our refunds &amp; return policy, please contact us at 
-    <a href="mailto:prayoshaoil@gmail.com" className="policy-link">prayoshaoil@gmail.com</a>.
+    If you have any questions or concerns about our refunds &amp; return policy, please contact us at  
+    <a href="mailto:Prayoshanaturaloil@gmail.com" className="policy-link">Prayoshanaturaloil@gmail.com</a>.
   </p>
   <address className="policy-address">
     Prayosha Oil<br />
-    321, Arth Business Center(abc),<br />
-Opposite TorrentPower SubStation,<br />
-Sardar Patel Ring Rd,<br />
-Ahmedabad, Gujarat 382350 <br />
-    <a href="mailto:prayoshaoil@gmail.com" className="policy-link">prayoshaoil@gmail.com</a>
+    Shop No. 1 & 2,Gayatri Nagar Society,<br />
+              Beside Tapovan School<br />
+              Nana Varachha,<br />
+                Surat, Gujarat 395006<br/>
+    <a href="mailto:Prayoshanaturaloil@gmail.com" className="policy-link">Prayoshanaturaloil@gmail.com</a>
   </address></div>
 </div>
 

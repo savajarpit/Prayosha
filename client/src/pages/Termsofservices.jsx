@@ -99,7 +99,7 @@ const Termsofservices = () => {
 
  
   <div className="container"><h2 className="unique-section-heading">20. Contact Information</h2>
-  <p className="unique-section-content">Questions about the Terms of Service should be sent to us at <a href="mailto:prayoshaoil@gmail.com" className="unique-email-link">prayoshaoil@gmail.com</a>.</p></div>
+  <p className="unique-section-content">Questions about the Terms of Service should be sent to us at <a href="mailto:Prayoshanaturaloil@gmail.com" className="unique-email-link">Prayoshanaturaloil@gmail.com</a>.</p></div>
 </div>
 
 </Layout>

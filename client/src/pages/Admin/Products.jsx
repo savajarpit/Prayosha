@@ -13,7 +13,7 @@ const Products = () => {
   const getAllProducts = async () => {
     try {
       const { data } = await axios.get(
-        `${import.meta.env.VITE_APIS}/api/v1/product/get-product`
+        `https://prayosha-backend.onrender.com/api/v1/product/get-product`
       );
       setProducts(data.products);
     } catch (error) {
@@ -27,7 +27,7 @@ const Products = () => {
   }, []);
 
   return (
-    <Layout title={"products"}>
+    <Layout title={"products-prayoshaoil"}>
       <div className="container-fluid mt-4  ">
         <div className="row">
           <div className="col-md-3">
@@ -47,9 +47,7 @@ const Products = () => {
                   >
                     <div className="productimage">
                       <img
-                        src={`${
-                          import.meta.env.VITE_APIS
-                        }/api/v1/product/product-photo/${p._id}`}
+                        src={`https://prayosha-backend.onrender.com/api/v1/product/product-photo/${p._id}`}
                         alt={p.name}
                         className="productImg"
                       />

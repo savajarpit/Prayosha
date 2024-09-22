@@ -11,7 +11,7 @@ export default function AdminRoute() {
 
   useEffect(() => {
     const authCheck = async () => {
-      const res = await axios.get(`${import.meta.env.VITE_APIS}/api/v1/auth/admin-auth`,{
+      const res = await axios.get(`https://prayosha-backend.onrender.com/api/v1/auth/admin-auth`,{
         headers: {
           Authorization:  auth?.token
         },

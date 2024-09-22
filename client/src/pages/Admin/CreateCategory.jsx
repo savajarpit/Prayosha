@@ -16,7 +16,7 @@ const CreateCategory = () => {
   const handlesubmit=async(e)=>{
     e.preventDefault()
     try{
-      const {data}=await axios.post( `${import.meta.env.VITE_APIS}/api/v1/category/create-category`,{name})
+      const {data}=await axios.post( `https://prayosha-backend.onrender.com/api/v1/category/create-category`,{name})
       if(data.success){
         toast.success(`${name} is created`)
         getAllcategory()
@@ -34,7 +34,7 @@ const CreateCategory = () => {
   const handleupdate=async(e)=>{
     e.preventDefault()
     try{
-      const {data}=await axios.put(`${import.meta.env.VITE_APIS}/api/v1/category/update-category/${selected._id}`,{name:updatename,slug:slugify(updatename)})
+      const {data}=await axios.put(`https://prayosha-backend.onrender.com/api/v1/category/update-category/${selected._id}`,{name:updatename,slug:slugify(updatename)})
       if(data?.success){
         toast.success(`${updatename} is updated`)
         setupdatename("")
@@ -52,7 +52,7 @@ const CreateCategory = () => {
     const handledelete=async(pid)=>{
       
       try{
-        const {data}=await axios.delete(`${import.meta.env.VITE_APIS}/api/v1/category/delete-category/${pid}`,{name:updatename,slug:slugify(updatename)})
+        const {data}=await axios.delete(`https://prayosha-backend.onrender.com/api/v1/category/delete-category/${pid}`,{name:updatename,slug:slugify(updatename)})
         if(data?.success){
           toast.success(`Category is deleted`)
          
@@ -68,7 +68,7 @@ const CreateCategory = () => {
   const getAllcategory = async () => {
     try {
       const { data } = await axios.get(
-        `${import.meta.env.VITE_APIS}/api/v1/category/get-category`
+        `https://prayosha-backend.onrender.com/api/v1/category/get-category`
       );
       if (data?.success) {
         setcategory(data?.category);

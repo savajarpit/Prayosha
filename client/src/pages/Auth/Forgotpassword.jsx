@@ -18,7 +18,7 @@ const Forgotpassword = () => {
     e.preventDefault();
     try {
       const res = await axios.post(
-        `${import.meta.env.VITE_APIS}/api/v1/auth/forgotpassword`,
+        `https://prayosha-backend.onrender.com/api/v1/auth/forgotpassword`,
         {  email, newpassword,answer }
       );
       if (res && res.data.success) {

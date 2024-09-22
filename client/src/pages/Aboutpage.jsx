@@ -108,7 +108,8 @@ function Aboutpage() {
                   border: "2px solid",
                   borderRadius: "20px",
                   borderColor: "rgb(37, 147, 184)",
-                  backgroundColor: "rgb(239, 244, 156)",
+                  backgroundColor: "#7eb7e9",
+                 
                 }}
               >
                 <h4 className="text-center mt-2">PURITY</h4>
@@ -126,7 +127,7 @@ function Aboutpage() {
                   border: "2px solid",
                   borderRadius: "20px",
                   borderColor: "rgb(37, 147, 184)",
-                  backgroundColor: "rgb(239, 244, 156)",
+                  backgroundColor: "#7eb7e9",
                 }}
               >
                 <h4 className="text-center mt-2">NATURALITY</h4>
@@ -144,7 +145,7 @@ function Aboutpage() {
                   border: "2px solid",
                   borderRadius: "20px",
                   borderColor: "rgb(37, 147, 184)",
-                  backgroundColor: "rgb(239, 244, 156)",
+                  backgroundColor: "#7eb7e9",
                 }}
               >
                 <h4 className="text-center mt-2">ORIGINALITY</h4>
@@ -161,7 +162,7 @@ function Aboutpage() {
                   border: "2px solid",
                   borderRadius: "20px",
                   borderColor: "rgb(37, 147, 184)",
-                  backgroundColor: "rgb(239, 244, 156)",
+                  backgroundColor: "#7eb7e9",
                 }}
               >
                 <h4 className="text-center mt-2">NOURISHING EVERY MEAL</h4>
